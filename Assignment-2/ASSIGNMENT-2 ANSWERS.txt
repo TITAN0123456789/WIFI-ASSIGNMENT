@@ -1,0 +1,134 @@
+1. SplitMAC Architecture and Performance Improvement
+
+SplitMAC divides MAC layer functionality between:
+
+Access Point (AP) → handles real-time operations
+Wireless LAN Controller (WLC) → handles management and control
+Distribution:
+Function	Location
+Frame transmission/reception	AP
+Encryption/Decryption	AP
+Authentication	WLC
+Roaming decisions	WLC
+Policy enforcement	WLC
+Performance Improvement:
+Reduces processing load on AP
+Centralized control → easier management
+Faster roaming (controller decides handoff)
+Better scalability for large networks
+
+2. CAPWAP Protocol and Flow
+
+CAPWAP (Control And Provisioning of Wireless Access Points) is used for communication between AP and WLC.
+
+Flow Between AP and Controller
+Discovery Phase
+AP finds WLC via DHCP / DNS / Broadcast
+Join Phase
+AP sends join request
+WLC authenticates AP
+Configuration Phase
+WLC pushes configuration to AP
+Data Transfer Phase
+Client traffic flows through CAPWAP tunnel
+Example Flow (Simulated Logs)
+AP → WLC : Discovery Request
+WLC → AP : Discovery Response
+AP → WLC : Join Request
+WLC → AP : Join Response
+CAPWAP Tunnel Established
+
+3. CAPWAP in OSI Model and Tunnels
+OSI Layer:
+
+CAPWAP operates at:
+
+Layer 3 (Network Layer) → uses IP
+Uses UDP ports:
+5246 → Control
+5247 → Data
+Two CAPWAP Tunnels
+Tunnel	Port	Purpose
+Control Tunnel	UDP 5246	AP management, configuration
+Data Tunnel	UDP 5247	Client data traffic
+
+4. Lightweight AP vs Cloud-Based AP
+Feature	Lightweight AP	Cloud-based AP
+Controller	Local WLC	Cloud controller
+Management	On-premise	Remote (cloud)
+Deployment	Enterprise networks	Scalable/cloud setups
+Dependency	Needs WLC	Needs internet
+Example Use	Campus network	Distributed branches
+
+5. CAPWAP Tunnel Maintenance
+
+CAPWAP tunnel is maintained using:
+
+Keepalive messages
+Heartbeat packets
+DTLS encryption (optional)
+Example Behavior
+AP → WLC : Keepalive (every 30 sec)
+WLC → AP : ACK
+
+If no response:
+
+AP retries → reconnect → rejoin process
+
+6. Sniffer Mode vs Monitor Mode
+Feature	Sniffer Mode	Monitor Mode
+Purpose	Capture packets	Detect threats/interference
+Data	Full packet capture	Security monitoring
+Use Tool	Wireshark	WLC monitoring
+Example Use	Debugging traffic	Detect rogue AP
+Use Cases
+Sniffer Mode → Packet analysis, troubleshooting
+Monitor Mode → Intrusion detection, RF scanning
+
+7. Best AP Mode when WLC is in WAN
+
+If WLC is deployed in WAN:
+
+Best Mode → FlexConnect Mode
+Why?
+Local switching of traffic
+Reduces WAN dependency
+AP can function even if WLC is unreachable
+Behavior:
+Client traffic stays local
+Only control traffic goes to WLC
+
+8. Challenges with Autonomous APs (50+ APs)
+
+In large networks like universities:
+
+Problems:
+No centralized control
+Manual configuration for each AP
+Difficult firmware updates
+Poor roaming performance
+No unified security policy
+High maintenance overhead
+Example Issue:
+AP1 SSID mismatch with AP2 → client disconnects
+
+9. Behavior When WLC Goes Down
+Case: Lightweight AP in Local Mode
+
+When WLC fails:
+
+AP loses CAPWAP tunnel
+Client traffic stops (central switching fails)
+New clients cannot connect
+Existing clients may disconnect
+Observed Behavior:
+CAPWAP tunnel lost
+AP enters standalone state
+Clients disconnected
+Exception (FlexConnect Mode)
+
+If AP is in FlexConnect:
+
+Existing clients continue working
+Local switching continues
+Only central authentication may fail
