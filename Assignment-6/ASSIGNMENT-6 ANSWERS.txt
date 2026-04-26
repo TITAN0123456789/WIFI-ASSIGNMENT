@@ -1,0 +1,99 @@
+1. Pillars of Wi-Fi Security
+
+The three main pillars of Wi-Fi security are:
+
+1. Authentication
+Verifies the identity of users/devices
+2. Encryption
+Protects data from unauthorized access
+3. Integrity
+Ensures data is not modified during transmission
+
+2. Authentication vs Encryption
+Feature	Authentication	Encryption
+Purpose	Identity verification	Data protection
+When Used	Before connection	During communication
+Example	Password login	AES encryption
+
+3. WEP vs WPA vs WPA2 vs WPA3
+Feature	WEP	WPA	WPA2	WPA3
+Encryption	RC4	TKIP	AES	AES + SAE
+Security	Weak	Moderate	Strong	Very Strong
+Key Management	Static	Dynamic	Dynamic	Advanced
+Year	1997	2003	2004	2018
+
+4. Why WEP is Insecure
+
+WEP is insecure because:
+
+Uses weak RC4 encryption
+Uses static keys
+Vulnerable to key cracking attacks
+No proper integrity protection
+
+Example attack:
+
+Packet capture → IV reuse → Key recovered
+
+5. Why WPA2 was Introduced
+
+WPA2 was introduced to:
+
+Replace weak WEP and WPA
+Use AES encryption (CCMP)
+Provide stronger security
+Improve key management
+
+6. Role of PMK in 4-Way Handshake
+
+PMK (Pairwise Master Key):
+
+Derived from passphrase
+Used to generate session keys
+Flow:
+Passphrase → PMK → PTK → Encryption keys
+
+7. 4-Way Handshake and Mutual Authentication
+
+Steps:
+
+AP sends ANonce
+Client generates SNonce and PTK
+AP verifies PTK
+Both confirm keys
+Mutual Authentication:
+Both client and AP prove they have the same PMK
+Ensures secure communication
+
+8. Wrong Passphrase Scenario
+
+If wrong password is used:
+
+PMK mismatch
+PTK cannot be generated correctly
+MIC verification fails
+Result:
+4-way handshake fails
+Client disconnected
+
+9. Problem Solved by 802.1X
+
+802.1X solves:
+
+Unauthorized access
+Weak password-based security
+Lack of centralized authentication
+
+10. How 802.1X Enhances Security
+
+802.1X uses:
+
+Authentication server (RADIUS)
+Dynamic key generation
+Per-user authentication
+Flow:
+Client → AP → RADIUS Server → Authentication Success
+Benefits:
+Strong authentication
+Individual user credentials
+Secure enterprise networks
