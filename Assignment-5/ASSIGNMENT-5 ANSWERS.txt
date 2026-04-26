@@ -1,0 +1,121 @@
+1. Key Features of Wi-Fi 6, 6E and 7
+Wi-Fi 5 (802.11ac)
+Operates in 5 GHz only
+Uses OFDM
+Supports MU-MIMO (downlink only)
+Max speed ≈ 3.5 Gbps
+Wi-Fi 6 (802.11ax)
+Operates in 2.4 GHz & 5 GHz
+Introduces OFDMA
+Supports UL + DL MU-MIMO
+Adds Target Wake Time (TWT)
+Max speed ≈ 9.6 Gbps
+Wi-Fi 6E
+Extends Wi-Fi 6 to 6 GHz band
+More channels → less congestion
+Lower latency
+Wi-Fi 7 (802.11be)
+Supports 320 MHz channels
+Uses 4096-QAM
+Introduces Multi-Link Operation (MLO)
+Max speed ≈ 46 Gbps
+Comparison
+Feature	Wi-Fi 5	Wi-Fi 6	Wi-Fi 6E	Wi-Fi 7
+Band	5 GHz	2.4/5 GHz	+6 GHz	All bands
+Efficiency	Medium	High	Very High	Extremely High
+Latency	Medium	Low	Lower	Ultra-low
+
+2. Role of OFDMA in Wi-Fi 6
+
+OFDMA (Orthogonal Frequency Division Multiple Access):
+
+Divides channel into subcarriers (RU – Resource Units)
+Allows multiple users simultaneously
+Example:
+Channel → Split into 4 RUs
+User1 → RU1
+User2 → RU2
+User3 → RU3
+User4 → RU4
+Benefits:
+Reduced latency
+Better spectrum utilization
+Efficient for dense environments
+
+3. Target Wake Time (TWT)
+
+TWT allows devices to schedule wake-up times.
+
+Working:
+Device sleeps → wakes at scheduled time → transmits → sleeps again
+Benefits for IoT:
+Saves battery life
+Reduces network congestion
+Improves efficiency
+
+4. Significance of 6 GHz Band (Wi-Fi 6E)
+Provides more spectrum (1200 MHz approx.)
+Supports more non-overlapping channels
+Less interference (no legacy devices)
+Advantages:
+Higher throughput
+Lower latency
+Cleaner spectrum
+
+5. Wi-Fi 6 vs Wi-Fi 6E
+Feature	Wi-Fi 6	Wi-Fi 6E
+Band	2.4/5 GHz	+6 GHz
+Range	Higher	Slightly lower
+Interference	Moderate	Very low
+Bandwidth	Limited	High
+
+6. Innovations in Wi-Fi 7
+
+Major features:
+
+320 MHz channel bandwidth
+4096-QAM modulation
+Multi-Link Operation (MLO)
+Improved MU-MIMO
+Lower latency (<1 ms)
+
+7. Multi-Link Operation (MLO)
+
+MLO allows a device to use multiple bands simultaneously.
+
+Example:
+Device → 2.4 GHz + 5 GHz + 6 GHz simultaneously
+Impact:
+Higher throughput
+Reduced latency
+Better reliability
+
+8. 802.11k and 802.11v
+802.11k (Radio Resource Management)
+Provides neighbor reports
+Helps client choose best AP
+802.11v (Network Management)
+AP suggests better AP to client
+Load balancing
+
+9. Fast BSS Transition (802.11r)
+
+802.11r enables fast roaming between APs.
+
+Working:
+Pre-authentication with target AP
+Reduces handoff delay
+Benefit:
+Seamless movement
+Useful in VoIP, video calls
+
+10. Combined Roaming (802.11k + v + r)
+Working Together:
+802.11k
+Provides AP list
+802.11v
+Suggests best AP
+802.11r
+Performs fast authentication
+Result:
+Client moves → detects AP → switches instantly → no packet loss
