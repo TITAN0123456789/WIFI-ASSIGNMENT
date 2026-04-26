@@ -1,0 +1,160 @@
+1. Significance of MAC Layer and OSI Position
+
+The MAC (Medium Access Control) layer is part of:
+
+OSI Layer 2 – Data Link Layer
+Significance:
+Controls access to wireless medium
+Handles frame transmission and reception
+Performs addressing using MAC addresses
+Ensures reliable communication using ACKs
+
+2. 802.11 MAC Header Frame Format
+
+Basic MAC frame structure:
+
+Frame Control | Duration | Address 1 | Address 2 | Address 3 | Sequence Control | Address 4 | Payload | FCS
+Field Explanation:
+Field	Purpose
+Frame Control	Type (Management/Data/Control)
+Duration	Time reserved for transmission
+Address 1	Receiver address
+Address 2	Transmitter address
+Address 3	BSSID
+Sequence Control	Packet ordering
+Address 4	Used in bridging
+Payload	Actual data
+FCS	Error detection
+
+3. MAC Layer Functionalities
+Management Plane
+Authentication
+Association / Reassociation
+Beacon transmission
+Probe request/response
+Control Plane
+RTS/CTS
+ACK frames
+Block ACK
+Data Plane
+Data transmission
+Fragmentation
+Aggregation (A-MPDU, A-MSDU)
+
+4. Scanning Process
+
+Scanning helps clients discover networks.
+
+Types:
+Passive Scanning
+AP sends beacon frames
+Client listens
+
+Example:
+
+Beacon: SSID = HomeWiFi, Channel = 6
+Active Scanning
+Client sends probe request
+AP responds with probe response
+
+Example:
+
+Client → Probe Request
+AP → Probe Response
+
+5. Client Association Process
+
+Steps:
+
+Scanning (find AP)
+Authentication
+Association
+IP assignment (DHCP)
+Flow:
+Client → AP : Authentication Request
+AP → Client : Authentication Response
+Client → AP : Association Request
+AP → Client : Association Response
+
+6. EAPOL 4-Way Handshake
+
+Used in WPA2/WPA3 security.
+
+Steps:
+Message 1
+AP sends ANonce
+Message 2
+Client sends SNonce + MIC
+Message 3
+AP sends GTK
+Message 4
+Client confirms installation
+Keys Derived:
+Key	Purpose
+PMK	Master key
+PTK	Pairwise key
+GTK	Group key
+
+7. Power Saving Mechanisms
+Basic Idea:
+
+Client sleeps to save power and wakes periodically.
+
+Types:
+Legacy Power Save
+AP buffers packets
+Client polls using PS-Poll
+U-APSD (WMM Power Save)
+Efficient for voice/video
+Trigger-based delivery
+TWT (Target Wake Time)
+Scheduled wake-up times
+Used in Wi-Fi 6
+
+8. Medium Access Control Methods
+CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)
+
+Steps:
+
+Listen to channel
+If free → transmit
+If busy → wait random backoff
+RTS/CTS Mechanism
+
+Used to avoid collisions:
+
+Client → RTS
+AP → CTS
+Client → Data
+AP → ACK
+
+9. Block ACK Mechanism
+
+Instead of ACK for each packet:
+
+Multiple frames acknowledged together
+
+Example:
+
+Frames 1–10 sent
+Single Block ACK received
+Advantages:
+Reduces overhead
+Improves efficiency
+Higher throughput
+
+10. Aggregation Techniques
+A-MSDU (Aggregate MAC Service Data Unit)
+Combines multiple MSDUs into one frame
+Same destination
+A-MPDU (Aggregate MAC Protocol Data Unit)
+Combines multiple MPDUs
+Each has its own header
+A-MSDU inside A-MPDU
+Nested aggregation
+Improves efficiency further
+Comparison:
+Feature	A-MSDU	A-MPDU
+Aggregation Level	Higher	Lower
+Error Handling	Entire frame retransmitted	Individual frame retransmitted
+Efficiency	High	Very high
