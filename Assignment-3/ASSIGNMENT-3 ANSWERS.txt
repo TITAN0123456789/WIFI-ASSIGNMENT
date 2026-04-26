@@ -1,0 +1,143 @@
+1. 802.11 PHY Layer Standards
+
+Different PHY standards define how data is transmitted over the air.
+
+Standard	Band	Max Speed	Modulation	Key Feature
+802.11b	2.4 GHz	11 Mbps	DSSS	Long range
+802.11a	5 GHz	54 Mbps	OFDM	Less interference
+802.11g	2.4 GHz	54 Mbps	OFDM	Backward compatible
+802.11n	2.4/5 GHz	600 Mbps	OFDM	MIMO
+802.11ac	5 GHz	3.5 Gbps	OFDM	MU-MIMO
+802.11ax	2.4/5/6 GHz	9.6 Gbps	OFDMA	High efficiency
+
+2. DSSS and FHSS
+DSSS (Direct Sequence Spread Spectrum)
+Spreads signal over wide frequency band
+Uses chipping code for transmission
+
+Example:
+
+Data: 1 → Spread → 10110101
+FHSS (Frequency Hopping Spread Spectrum)
+Signal hops between frequencies
+Reduces interference and jamming
+
+Example:
+
+Channel sequence: 1 → 5 → 9 → 3 → 7
+Comparison
+Feature	DSSS	FHSS
+Transmission	Continuous	Hopping
+Interference	Moderate	Low
+Speed	Higher	Lower
+
+3. Modulation Schemes in PHY Layer
+
+Modulation converts digital data into radio signals.
+
+Common Schemes:
+Modulation	Bits per Symbol	Performance
+BPSK	1	Very robust
+QPSK	2	Moderate
+16-QAM	4	Faster
+64-QAM	6	High speed
+256-QAM	8	Very high speed
+Comparison Across Wi-Fi
+Standard	Modulation
+802.11b	DSSS
+802.11a/g	64-QAM
+802.11n	64-QAM
+802.11ac	256-QAM
+802.11ax	1024-QAM
+
+4. Significance of OFDM
+
+OFDM (Orthogonal Frequency Division Multiplexing):
+
+Splits signal into multiple subcarriers
+Each subcarrier transmits part of data
+Benefits:
+Reduces interference
+Improves bandwidth efficiency
+Supports high data rates
+
+5. Wi-Fi Frequency Bands
+Bands Used:
+Band	Frequency	Channels
+2.4 GHz	2.4–2.483 GHz	1–13
+5 GHz	5.1–5.8 GHz	36–165
+6 GHz	5.925–7.125 GHz	Wi-Fi 6E
+Channel Example (2.4 GHz)
+Channel 1 → 2.412 GHz
+Channel 6 → 2.437 GHz
+Channel 11 → 2.462 GHz
+
+6. Guard Interval in WLAN
+
+Guard Interval (GI):
+
+Time gap between symbols
+Prevents inter-symbol interference
+Types:
+Type	Duration
+Normal GI	800 ns
+Short GI	400 ns
+Benefit of Short GI:
+Higher throughput
+Reduced transmission time
+
+7. Structure of 802.11 PHY Frame
+
+Basic PHY frame structure:
+
+Preamble | Header | Payload
+Components:
+Preamble → synchronization
+Header → rate, length info
+Payload → actual data
+
+8. OFDM vs OFDMA
+Feature	OFDM	OFDMA
+Access	One user at a time	Multiple users
+Efficiency	Lower	Higher
+Used In	Wi-Fi 4/5	Wi-Fi 6
+
+9. MIMO vs MU-MIMO
+Feature	MIMO	MU-MIMO
+Users	Single	Multiple
+Streams	Multiple	Multiple users
+Efficiency	Medium	High
+
+10. PPDU, PLCP, PMD
+PPDU (Physical Protocol Data Unit)
+Complete PHY frame transmitted
+PLCP (Physical Layer Convergence Protocol)
+Converts MAC frame → PHY format
+PMD (Physical Medium Dependent)
+Handles signal transmission over medium
+
+11. Types of PPDU
+Generation	PPDU Type
+802.11a/g	OFDM PPDU
+802.11n	HT PPDU
+802.11ac	VHT PPDU
+802.11ax	HE PPDU
+Example Frame Format
+Preamble | Signal | Data | Tail
+
+12. Data Rate Calculation
+
+Data rate depends on:
+
+Bandwidth
+Modulation
+Coding rate
+Number of spatial streams
+Formula:
+Data Rate = (Subcarriers × Bits per symbol × Coding rate) / Symbol duration
+Example (802.11n):
+Subcarriers = 52
+Modulation = 64-QAM (6 bits)
+Coding rate = 3/4
+
+Data Rate ≈ 65 Mbps (single stream)
