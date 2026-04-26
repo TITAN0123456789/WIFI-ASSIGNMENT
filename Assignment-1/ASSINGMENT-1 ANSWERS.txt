@@ -1,0 +1,147 @@
+1. OSI Layer for Wi-Fi Protocol
+
+Wi-Fi (IEEE 802.11 standards) operates in:
+
+Layer 1 – Physical Layer
+Layer 2 – Data Link Layer
+
+Explanation:
+
+Physical Layer → Handles radio transmission (frequency bands like 2.4 GHz, 5 GHz)
+Data Link Layer (MAC sublayer) → Handles frame formatting, MAC addressing, error detection
+
+2. Wi-Fi Devices and Capabilities
+Device Used: Laptop (Intel Dual Band Wireless-AC 8265)
+
+Command:
+
+netsh wlan show interfaces
+
+Output:
+
+Name                   : Wi-Fi
+Description            : Intel(R) Dual Band Wireless-AC 8265
+SSID                   : HomeWiFi_5G
+Radio type             : 802.11ac
+Authentication         : WPA2-Personal
+Signal                 : 88%
+Receive rate (Mbps)    : 433
+Transmit rate (Mbps)   : 433
+Channel                : 36
+Mobile Device (Android Hotspot)
+Supported Bands: 2.4 GHz / 5 GHz
+Security: WPA2/WPA3
+Max Speed: ~150 Mbps (2.4 GHz), ~433 Mbps (5 GHz)
+Mapping to Wi-Fi Generations
+Standard	Generation	Band	Speed
+802.11n	Wi-Fi 4	2.4/5 GHz	up to 600 Mbps
+802.11ac	Wi-Fi 5	5 GHz	up to 3.5 Gbps
+
+ My laptop supports Wi-Fi 5 (802.11ac)
+
+3. BSS and ESS
+BSS (Basic Service Set)
+Single access point + connected devices
+Identified by BSSID (MAC address)
+
+Example:
+
+AP → Laptop, Mobile
+ESS (Extended Service Set)
+Multiple APs connected together
+Same SSID across network
+Used in large areas (campus, offices)
+
+4. Functionalities of Wi-Fi Access Point
+
+A Wi-Fi Access Point performs:
+
+Provides wireless connectivity
+Broadcasts SSID
+Handles authentication (WPA2/WPA3)
+Assigns IP via DHCP
+Routes traffic to internet
+Manages connected clients
+Performs encryption
+
+5. Bridge Mode vs Repeater Mode
+Feature	Bridge Mode	Repeater Mode
+Purpose	Connect two networks	Extend Wi-Fi coverage
+Bandwidth	Full bandwidth	Reduced bandwidth
+Connection	Wired/Wireless	Wireless only
+Use Case	Network expansion	Signal boosting
+
+6. Difference between 802.11a and 802.11b
+Feature	802.11a	802.11b
+Frequency	5 GHz	2.4 GHz
+Speed	54 Mbps	11 Mbps
+Range	Shorter	Longer
+Interference	Less	More
+Cost	Higher	Lower
+
+7. 2.4 GHz vs 5 GHz Comparison
+
+Command:
+
+netsh wlan show interfaces
+
+Output:
+
+SSID                   : HomeWiFi_2G
+Radio type             : 802.11n
+Channel                : 6
+Receive rate           : 144 Mbps
+Signal                 : 95%
+5 GHz Configuration
+
+Output:
+
+SSID                   : HomeWiFi_5G
+Radio type             : 802.11ac
+Channel                : 36
+Receive rate           : 433 Mbps
+Signal                 : 80%
+Comparison Table
+Feature	2.4 GHz	5 GHz
+Speed	Lower	Higher
+Range	Higher	Lower
+Interference	High	Low
+Channels	Limited	More
+Signal Strength	Strong	Moderate
+
+8. Difference between IEEE and WFA
+IEEE	WFA (Wi-Fi Alliance)
+Defines standards (802.11)	Certifies devices
+Technical body	Industry organization
+Focus on protocols	Focus on compatibility
+
+9. Wi-Fi Backhaul Types
+
+Types of backhaul:
+
+Fiber Optic
+DSL
+Cable
+Cellular (4G/5G)
+Microwave
+Example (Home Network)
+Backhaul Type: Fiber Broadband
+ISP Router IP: 192.168.1.1
+Speed: 100 Mbps
+Latency: ~10 ms
+
+10. Wi-Fi Topologies
+1. Infrastructure Mode
+Devices connect via Access Point
+Most common
+2. Ad-hoc Mode
+Device-to-device communication
+No AP required
+3. Mesh Topology
+Multiple APs interconnected
+Used in smart homes and campuses
+4. Point-to-Point
+Direct link between two devices
+Used for long-distance connections
+
+
